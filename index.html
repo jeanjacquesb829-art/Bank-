@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NeoBank Demo</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div id="notification" class="notification"></div>
+
+<!-- LOGIN -->
+
+<div id="loginPage" class="login">
+
+<h2>Connexion</h2>
+
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Mot de passe">
+
+<button onclick="login()">Se connecter</button>
+
+<p id="error"></p>
+
+</div>
+
+<!-- APP -->
+
+<div id="app" class="container" style="display:none;">
+
+<div class="sidebar">
+
+<h2>NeoBank</h2>
+
+<ul>
+
+<li onclick="showSection('comptes')">Mes comptes</li>
+<li onclick="showSection('operations')">Mes opérations</li>
+<li onclick="showSection('virements')">Virements</li>
+<li onclick="showSection('budget')">Analyse IA</li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="blocked">
+
+! COMPTE BLOQUÉ
+
+</div>
+
+<!-- COMPTES -->
+
+<div id="comptes" class="section">
+
+<h3>Mes comptes</h3>
+
+<div class="accounts">
+
+<div class="account-box">
+
+<h4>Compte courant</h4>
+
+<p>Solde : <span class="acc">2804 €</span></p>
+
+<p>IBAN : FR76 3000 6000 0112 3456 7890 189</p>
+
+</div>
+
+<div class="account-box">
+
+<h4>Épargne</h4>
+
+<p>Solde : 12500 €</p>
+
+</div>
+
+<div class="account-box">
+
+<h4>Crypto</h4>
+
+<p>Solde : 0.42 BTC</p>
+
+</div>
+
+</div>
+
+<div class="balance">
+
+<span id="balanceValue">2804 €</span>
+
+<button onclick="toggleBalance()">👁</button>
+
+</div>
+
+<!-- CARTE 3D RETOURNABLE -->
+
+<div class="card3d" onclick="flipCard()">
+
+<div class="card-inner" id="cardInner">
+
+<div class="card-front">
+
+<div class="chip"></div>
+
+<div class="card-number">
+
+4587 9812 5534 1298
+
+</div>
+
+<div class="card-holder">
+
+JEAN JACQUES
+
+</div>
+
+<div class="card-exp">
+
+12/28
+
+</div>
+
+<div class="visa">
+
+VISA
+
+</div>
+
+</div>
+
+<div class="card-back">
+
+<div class="stripe"></div>
+
+<div class="cvv">
+
+CVV : 843
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- OPERATIONS -->
+
+<div id="operations" class="section" style="display:none;">
+
+<h3>Transactions</h3>
+
+<div id="transactions"></div>
+
+</div>
+
+<!-- VIREMENTS -->
+
+<div id="virements" class="section" style="display:none;">
+
+<h3>Virement</h3>
+
+<input placeholder="Destinataire">
+<input placeholder="IBAN">
+<input placeholder="Montant">
+
+<button onclick="blocked()">Envoyer</button>
+
+</div>
+
+<!-- ANALYSE -->
+
+<div id="budget" class="section" style="display:none;">
+
+<h3>Graphique des dépenses</h3>
+
+<canvas id="chart"></canvas>
+
+<p id="aiText"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
